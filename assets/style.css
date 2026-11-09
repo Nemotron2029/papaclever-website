@@ -1,0 +1,221 @@
+/* Papa Clever – Website-Layout
+   Ruhiges, lesbares Layout für lange Ratgebertexte. Keine externen Schriften,
+   keine Skripte, keine Cookies. Stand 09.11.2026 */
+
+:root {
+  --ink: #23201c;
+  --ink-soft: #55504a;
+  --brand: #2e5e4e;
+  --brand-dark: #24493c;
+  --brand-light: #3f7a66;
+  --accent: #c98a2e;
+  --bg: #faf7f2;
+  --card: #ffffff;
+  --line: #e3ddd2;
+  --line-soft: #efe9de;
+  --warn-bg: #fdf6e6;
+  --warn-line: #e6cf9a;
+  --radius: 10px;
+  --max: 760px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+/* ---------- Kopf ---------- */
+.site-header {
+  background: var(--brand);
+  color: #fff;
+  padding: 16px 0 14px;
+}
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 18px;
+}
+.brand {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+  text-decoration: none;
+}
+.site-nav { display: flex; gap: 18px; font-size: .92rem; }
+.site-nav a { color: #eaf2ee; text-decoration: none; border-bottom: 1px solid transparent; }
+.site-nav a:hover { border-bottom-color: #eaf2ee; }
+.tagline {
+  margin: 4px 0 0;
+  font-size: .9rem;
+  color: #cfe0d8;
+}
+
+/* ---------- Inhalt ---------- */
+main { padding: 32px 20px 56px; }
+
+h1 {
+  font-size: 1.78rem;
+  line-height: 1.28;
+  margin: .2em 0 .5em;
+  letter-spacing: -.01em;
+}
+h2 {
+  font-size: 1.22rem;
+  line-height: 1.35;
+  margin: 2em 0 .5em;
+  padding-top: .2em;
+}
+h3 {
+  font-size: 1.04rem;
+  margin: 1.7em 0 .4em;
+  color: var(--brand-dark);
+}
+p { margin: 0 0 1em; }
+a { color: var(--brand); text-underline-offset: 2px; }
+a:hover { color: var(--brand-dark); }
+
+.lead { font-size: 1.06rem; color: var(--ink-soft); }
+
+.meta {
+  font-size: .88rem;
+  color: #7a7268;
+  margin-bottom: 1.6em;
+}
+
+.backlink { font-size: .9rem; margin: 0 0 16px; }
+.backlink a { text-decoration: none; }
+.article + .backlink { margin-top: 2.4em; }
+
+/* ---------- Startseite ---------- */
+.cards { display: grid; gap: 14px; margin: 26px 0 10px; }
+.card {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .15s ease, transform .15s ease;
+}
+.card:hover { border-color: var(--brand-light); transform: translateY(-1px); }
+.card h2 { margin: 0 0 6px; padding: 0; font-size: 1.12rem; color: var(--brand-dark); }
+.card p { margin: 0 0 10px; color: var(--ink-soft); font-size: .96rem; }
+.card-meta { font-size: .84rem !important; color: #8a8178 !important; margin: 0 !important; }
+.card-more { color: var(--brand); font-weight: 600; }
+
+.about {
+  margin-top: 34px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+  font-size: .95rem;
+  color: var(--ink-soft);
+}
+.about h2 { font-size: 1.05rem; margin-top: 1.4em; }
+
+/* ---------- Artikel ---------- */
+.article { max-width: 100%; }
+.article blockquote {
+  margin: 1.6em 0;
+  padding: 14px 16px;
+  background: var(--warn-bg);
+  border: 1px solid var(--warn-line);
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
+  font-size: .95rem;
+  color: #4a4238;
+}
+.article blockquote p { margin: 0 0 .6em; }
+.article blockquote p:last-child { margin-bottom: 0; }
+
+.article ul, .article ol { padding-left: 1.35em; margin: 0 0 1.1em; }
+.article li { margin-bottom: .35em; }
+
+/* Checklisten */
+.task-list { list-style: none; padding-left: .2em; }
+.task-list li { position: relative; padding-left: 1.7em; }
+.task-list input[type="checkbox"] {
+  position: absolute; left: 0; top: .34em;
+  width: 1em; height: 1em; margin: 0;
+  accent-color: var(--brand);
+}
+
+/* Tabellen */
+.table-wrap { overflow-x: auto; margin: 1.2em 0; border: 1px solid var(--line); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-size: .92rem; background: var(--card); }
+th, td { padding: 9px 11px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line-soft); }
+th { background: var(--line-soft); font-weight: 600; white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+
+/* Partnerlink-Zeilen */
+.buy { margin: .6em 0 1.6em; }
+.buy-link {
+  display: inline-block;
+  background: var(--brand);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: .95rem;
+  padding: 10px 16px;
+  border-radius: 8px;
+}
+.buy-link:hover { background: var(--brand-dark); color: #fff; }
+.buy-pending {
+  display: inline-block;
+  border: 1px dashed #b9b0a2;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: .92rem;
+  color: #6d655b;
+  background: #fbf9f5;
+}
+.pending {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: #8a8178;
+}
+
+code {
+  background: #efeae2;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: .88em;
+}
+
+/* ---------- Fuß ---------- */
+.site-footer {
+  background: var(--line-soft);
+  border-top: 1px solid var(--line);
+  padding: 22px 0 26px;
+  font-size: .88rem;
+  color: #5f584f;
+}
+.site-footer p { margin: 0 0 8px; }
+.site-footer .affiliate { font-weight: 600; color: var(--brand-dark); }
+.site-footer a { color: var(--brand); }
+.footer-meta { color: #8a8178; font-size: .82rem; }
+
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.14rem; }
+  main { padding-top: 22px; }
+  .site-nav { gap: 14px; }
+}
