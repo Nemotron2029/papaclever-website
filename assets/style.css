@@ -163,7 +163,8 @@ tr:last-child td { border-bottom: 0; }
 
 /* Partnerlink-Zeilen */
 .buy { margin: .6em 0 1.6em; }
-.buy-link {
+.buy-link,
+.cta {
   display: inline-block;
   background: var(--brand);
   color: #fff;
@@ -173,7 +174,8 @@ tr:last-child td { border-bottom: 0; }
   padding: 10px 16px;
   border-radius: 8px;
 }
-.buy-link:hover { background: var(--brand-dark); color: #fff; }
+.buy-link:hover,
+.cta:hover { background: var(--brand-dark); color: #fff; }
 .buy-pending {
   display: inline-block;
   border: 1px dashed #b9b0a2;
